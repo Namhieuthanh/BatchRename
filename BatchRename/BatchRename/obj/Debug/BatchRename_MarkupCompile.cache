@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Documents\GitHub\Batch-Rename\BatchRename\BatchRename\obj\Debug\
+E:\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\
 BatchRename
 none
 false
 DEBUG;TRACE
-E:\Documents\GitHub\Batch-Rename\BatchRename\BatchRename\App.xaml
-2-1415900482
+E:\Documents\GitHub\BatchRename\BatchRename\BatchRename\App.xaml
+3-532316315
 
-10-2088475582
-151377067096
-MainWindow.xaml;ReplaceConfigDialog.xaml;
+12-287935374
+15816311982
+MainWindow.xaml;MoveConfigDialog.xaml;ReplaceConfigDialog.xaml;
 
 False
 

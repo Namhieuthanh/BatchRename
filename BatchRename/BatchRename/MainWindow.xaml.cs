@@ -52,8 +52,17 @@ namespace BatchRename
                     To = "To"
                 }
             };
+            var prototype2 = new MoveOperation()
+            {
+                Args = new MoveArgs()
+                {
+                    Size = 0,
+                    Type = 0
+                }
+            };
             //add vào list prototypes
             _prototypes.Add(prototype1);
+            _prototypes.Add(prototype2);
             //set source cho prototypesComboBox, filesListView, folderListView và operationListBox
             prototypesComboBox.ItemsSource = _prototypes;
             operationsListBox.ItemsSource = _actions;
