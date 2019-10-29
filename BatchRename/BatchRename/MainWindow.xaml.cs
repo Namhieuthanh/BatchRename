@@ -60,9 +60,11 @@ namespace BatchRename
                     Type = 0
                 }
             };
+            var prototype3 = new UniqueStringOperation();
             //add vào list prototypes
             _prototypes.Add(prototype1);
             _prototypes.Add(prototype2);
+            _prototypes.Add(prototype3);
             //set source cho prototypesComboBox, filesListView, folderListView và operationListBox
             prototypesComboBox.ItemsSource = _prototypes;
             operationsListBox.ItemsSource = _actions;

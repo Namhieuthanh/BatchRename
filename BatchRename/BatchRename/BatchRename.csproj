@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="ReplaceOperation.cs" />
     <Compile Include="StringOperationContract.cs" />
+    <Compile Include="UniqueStringOperation.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
