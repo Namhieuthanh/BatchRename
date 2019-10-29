@@ -52,7 +52,7 @@
         <StackPanel Orientation="Vertical" Width="654">
             <StackPanel Orientation="Horizontal">
                 <Button Name="startButton" FontSize="50" Content="Start" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="129" Height="77" Click="startButton_Click"/>
-                <Button x:Name="reviewButton" FontSize="50" Content="Review" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="174" Height="77" Click="reviewButton_Click"/>
+                <Button x:Name="previewButton" FontSize="50" Content="Preview" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="174" Height="77" Click="previewButton_Click"/>
             </StackPanel>
             <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="610" VerticalAlignment="Top" Width="654">
                 <TabItem x:Name="renameFilesTabItem" Header="Rename Files" FontSize="20">

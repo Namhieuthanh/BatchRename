@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -185,9 +186,17 @@ namespace BatchRename
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void reviewButton_Click(object sender, RoutedEventArgs e)
+        private void previewButton_Click(object sender, RoutedEventArgs e)
         {
-
+            for (int i = 0; i < _actions.Count; i++)
+            {
+                for (int j = 0; j < listFiles.Count; j++)
+                {
+                    Debug.WriteLine(listFiles[j].Name);
+                    listFiles[j].Newname = _actions[i].Operate(listFiles[j].Name);
+                    Debug.WriteLine(listFiles[j].Newname);
+                }
+            }
         }
 
    
