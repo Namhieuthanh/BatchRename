@@ -46,8 +46,10 @@ namespace BatchRename
         BindingList<String> _presets = new BindingList<string>();
         //đường dẫn đến thư mục chứa presets
         string path = AppDomain.CurrentDomain.BaseDirectory+"Presets";
+        //chuỗi hằng: ký tự phân tách
+        const string Seperator = "/";
 
-        
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -193,7 +195,23 @@ namespace BatchRename
         /// <param name="e"></param>
         private void usePresetButton_Click(object sender, RoutedEventArgs e)
         {
+            var usedPreset = presetsComboBox.SelectedItem as String;
+            var lines = System.IO.File.ReadAllLines(path + "\\" + usedPreset + ".txt");
+            foreach(var line in lines)
+            {
+                String[] tokens = line.Split(new string[] { Seperator }, StringSplitOptions.RemoveEmptyEntries);
+                for(int i=0; i<_prototypes.Count; i++)
+                {
+                    if (_prototypes[i].Name == tokens[0])
+                    {
+                        String[] args=new string[tokens.Length-1];
+                        Array.Copy(tokens, 1, args, 0, tokens.Length - 1);                        
+                        //_prototypes[i].Clone(args);
+                    }
 
+                }
+            }
+            
         }
 
         /// <summary>
