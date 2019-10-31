@@ -271,36 +271,24 @@ namespace BatchRename
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void usePresetButton_Click(object sender, RoutedEventArgs e)
-<<<<<<< HEAD
-        {
-=======
         {                      
->>>>>>> 6b4c83b2e520f4d4fa72eefeb712c8572b0db352
             var usedPreset = presetsComboBox.SelectedItem as String;
             if (usedPreset != null)
             {
                 _actions.Clear();
-<<<<<<< HEAD
 
                 var lines = System.IO.File.ReadAllLines(path + "\\" + usedPreset + ".txt");
                 foreach (var line in lines)
                 {
-                    string[] tokens = line.Split(new string[] { Seperator }, StringSplitOptions.RemoveEmptyEntries);
-=======
-                var lines = System.IO.File.ReadAllLines(path + "\\" + usedPreset + ".txt");
-                foreach (var line in lines)
-                {
                     String[] tokens = line.Split(new string[] { Seperator }, StringSplitOptions.RemoveEmptyEntries);
->>>>>>> 6b4c83b2e520f4d4fa72eefeb712c8572b0db352
+
                     for (int i = 0; i < _prototypes.Count; i++)
                     {
                         if (_prototypes[i].Name == tokens[0])
                         {
-<<<<<<< HEAD
+
                             string[] args = new string[tokens.Length - 1];
-=======
-                            String[] args = new string[tokens.Length - 1];
->>>>>>> 6b4c83b2e520f4d4fa72eefeb712c8572b0db352
+
                             Array.Copy(tokens, 1, args, 0, tokens.Length - 1);
                             _actions.Add(_prototypes[i].Clone(args));
                         }
