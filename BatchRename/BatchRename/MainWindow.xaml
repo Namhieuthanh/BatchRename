@@ -9,13 +9,9 @@
     <StackPanel Orientation="Horizontal" Margin="0,0,-6,0">
         <StackPanel Orientation="Vertical" Width="427">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Presets" FontSize="30" Margin="0,0,20,0"/>
-                <ComboBox Name="presetsComboBox" FontSize="30" Height="46" Width="160">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Name, Mode=OneWay}" FontSize="30"/>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
+                <TextBlock Text="Presets" FontSize="30" Margin="0,0,10,0"/>
+                <ComboBox Name="presetsComboBox" FontSize="30" Height="46" Width="169">
+                    
                 </ComboBox>
                 <Button Name="usePresetButton" FontSize="20" Width="50" Content="Use"  Click="usePresetButton_Click"/>
                 <Button Name="savePresetButton" FontSize="20" Width="50" Content="Save"  Click="savePresetButton_Click"/>

@@ -38,9 +38,14 @@ namespace BatchRename
         BindingList<File> listFiles = new BindingList<File>();
         //list chứa các folders cần đổi tên
         BindingList<Folder> listFolders = new BindingList<Folder>();
+        //list chứa các prototypes mà mình có
         List<StringOperation> _prototypes = new List<StringOperation>();
-
+        //list chứa các actions được add 
         BindingList<StringOperation> _actions = new BindingList<StringOperation>();
+        //list chứa các presets mà mình có
+        BindingList<String> _presets = new BindingList<string>();
+        //đường dẫn đến thư mục chứa presets
+        string path = AppDomain.CurrentDomain.BaseDirectory+"Presets";
 
         
 
@@ -68,12 +73,20 @@ namespace BatchRename
             _prototypes.Add(prototype1);
             _prototypes.Add(prototype2);
             _prototypes.Add(prototype3);
-            //set source cho prototypesComboBox, filesListView, folderListView và operationListBox
+            //load các presets mà mình có
+            Directory.CreateDirectory(path);
+            var PresetsLocation = new DirectoryInfo(path);
+            FileInfo[] files = PresetsLocation.GetFiles("*.txt");
+            foreach(var file in files)
+            {
+                _presets.Add(System.IO.Path.GetFileNameWithoutExtension(file.Name));
+            }
+            //set source cho prototypesComboBox, filesListView, folderListView, presetsCombobox và operationListBox
             prototypesComboBox.ItemsSource = _prototypes;
             operationsListBox.ItemsSource = _actions;
             filesListView.ItemsSource = listFiles;
             foldersListView.ItemsSource = listFolders;
-
+            presetsComboBox.ItemsSource = _presets;
         }
 
         /// <summary>
@@ -158,7 +171,19 @@ namespace BatchRename
         /// <param name="e"></param>
         private void deletePresetButton_Click(object sender, RoutedEventArgs e)
         {
+            var delPreset = presetsComboBox.SelectedItem as String;
+            if (delPreset != null)
+            {
+                DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure?",
+               "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+                {
 
+                    _presets.Remove(delPreset);
+                    System.IO.File.Delete(path + "\\" + delPreset + ".txt");
+                }
+            }
+           
         }
 
         /// <summary>
