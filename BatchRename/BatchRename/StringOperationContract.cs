@@ -4,6 +4,7 @@ namespace BatchRename
 {
     public class StringArgs
     {
+
     }
 
     public abstract class StringOperation : INotifyPropertyChanged

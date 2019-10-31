@@ -70,3 +70,5 @@ C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\Bat
 C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\BatchRename.csproj.Fody.CopyLocal.cache
 C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\BatchRename.exe
 C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\BatchRename.pdb
+E:\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\PresetNameConfigDialog.g.cs
+E:\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\PresetNameConfigDialog.baml

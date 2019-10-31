@@ -24,6 +24,7 @@ namespace BatchRename
         }
         public string Path { get; set; }
         public string Error { get; set; }
+        public string Extension { get; set; }
     }
      
   

@@ -46,8 +46,10 @@ namespace BatchRename
         BindingList<String> _presets = new BindingList<string>();
         //đường dẫn đến thư mục chứa presets
         string path = AppDomain.CurrentDomain.BaseDirectory+"Presets";
-        //chuỗi hằng: ký tự phân tách
+        //hằng, ký tự phân tách
         const string Seperator = "/";
+
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -108,9 +110,8 @@ namespace BatchRename
                 {
                     //tạo 1 file mới
                     File file = new File();
-                    //tách fullFileName thành name, extension và path
-                    file.Name = System.IO.Path.GetFileNameWithoutExtension(fullFileName);
-                    file.Extension = System.IO.Path.GetExtension(fullFileName);
+                    //tách fullFileName thành name và path
+                    file.Name = System.IO.Path.GetFileName(fullFileName);
                     file.Path = System.IO.Path.GetDirectoryName(fullFileName);
                     //add file mới tạo vào list
                     listFiles.Add(file);
@@ -133,6 +134,7 @@ namespace BatchRename
             {
                 //tạo folder mới
                 Folder folder = new Folder();
+        
                 var fullName = folderBrowserDialog.SelectedPath;
                 //tách fullname thành path và name
                 folder.Path = System.IO.Path.GetDirectoryName(fullName);
@@ -140,6 +142,7 @@ namespace BatchRename
                 //add vào list folder
                 listFolders.Add(folder);
             }
+           
         }
 
         /// <summary>
@@ -149,83 +152,9 @@ namespace BatchRename
         /// <param name="e"></param>
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
-            if (listFiles.Count == 0 && listFolders.Count == 0)
-            {
-                System.Windows.Forms.MessageBox.Show("Please add file(s)/folder(s)!");
-            }
-            else
-            {
-                DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure?",
-               "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == System.Windows.Forms.DialogResult.Yes)
-                {
-                    for (int iFile = 0; iFile < listFiles.Count; iFile++)
-                    {
-                        for (int iAction = 0; iAction < _actions.Count; iAction++)
-                        {
-                            listFiles[iFile].NewName = _actions[iAction].Operate(listFiles[iFile].Name);
-                        }
-                    }
-                    for (int iFolder = 0; iFolder < listFolders.Count; iFolder++)
-                    {
-                        for (int iAction = 0; iAction < _actions.Count; iAction++)
-                        {
-                            listFolders[iFolder].NewName = _actions[iAction].Operate(listFolders[iFolder].Name);
-                        }
-                    }
-                    for (int iFile = 0; iFile < listFiles.Count; iFile++)
-                    {
-                        string source = listFiles[iFile].Path + "\\" + listFiles[iFile].Name
-                            + listFiles[iFile].Extension;
-                        string dest = listFiles[iFile].Path + "\\" + listFiles[iFile].NewName
-                            + listFiles[iFile].Extension;
-                        if (System.IO.File.Exists(dest))
-                        {
-                            string newName;
-                            int count = 0;
-                            do
-                            {
-                                count++;
-                                newName = string.Format("{0}({1}){2}",
-                                listFiles[iFile].Path + "\\" + listFiles[iFile].NewName, count, listFiles[iFile].Extension);
-                            }
-                            while (System.IO.File.Exists(newName));
-                            System.IO.File.Move(source, newName);
-                        }
-                        else
-                        {
-                            System.IO.File.Move(source, dest);
-                        }
-
-                    }
-                    for (int iFolder = 0; iFolder < listFolders.Count; iFolder++)
-                    {
-                        string source = listFolders[iFolder].Path + "\\" + listFolders[iFolder].Name;
-                        string dest = listFolders[iFolder].Path + "\\" + listFolders[iFolder].NewName;
-                        if (System.IO.Directory.Exists(dest))
-                        {
-                            string newName;
-                            int count = 0;
-                            do
-                            {
-                                count++;
-                                newName = string.Format("{0}({1})",
-                                    listFolders[iFolder].Path + "\\" + listFolders[iFolder].NewName, count);
-                            }
-                            while (System.IO.Directory.Exists(newName));
-                            System.IO.Directory.Move(source, newName);
-                        }
-                        else
-                        {
-                            System.IO.Directory.Move(source, dest);
-                        }
-                    }
-                    listFolders.Clear();
-                    listFiles.Clear();
-                    System.Windows.Forms.MessageBox.Show("Done");
-                }
-            } 
+         
         }
+
 
         /// <summary>
         /// Hàm thực hiện việc lưu preset, thực hiện khi bấm nút save
@@ -234,13 +163,7 @@ namespace BatchRename
         /// <param name="e"></param>
         private void savePresetButton_Click(object sender, RoutedEventArgs e)
         {
-            string presetName = "";
-            var screen = new PresetNameConfigDialog(presetName);
-            screen.ShowDialog();
-            if (presetName != "")
-            {
-                
-            }
+
         }
 
         /// <summary>
@@ -271,42 +194,24 @@ namespace BatchRename
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void usePresetButton_Click(object sender, RoutedEventArgs e)
-<<<<<<< HEAD
         {
-=======
-        {                      
->>>>>>> 6b4c83b2e520f4d4fa72eefeb712c8572b0db352
             var usedPreset = presetsComboBox.SelectedItem as String;
-            if (usedPreset != null)
+            var lines = System.IO.File.ReadAllLines(path + "\\" + usedPreset + ".txt");
+            foreach(var line in lines)
             {
-                _actions.Clear();
-<<<<<<< HEAD
-
-                var lines = System.IO.File.ReadAllLines(path + "\\" + usedPreset + ".txt");
-                foreach (var line in lines)
+                String[] tokens = line.Split(new string[] { Seperator }, StringSplitOptions.RemoveEmptyEntries);
+                for(int i=0; i<_prototypes.Count; i++)
                 {
-                    string[] tokens = line.Split(new string[] { Seperator }, StringSplitOptions.RemoveEmptyEntries);
-=======
-                var lines = System.IO.File.ReadAllLines(path + "\\" + usedPreset + ".txt");
-                foreach (var line in lines)
-                {
-                    String[] tokens = line.Split(new string[] { Seperator }, StringSplitOptions.RemoveEmptyEntries);
->>>>>>> 6b4c83b2e520f4d4fa72eefeb712c8572b0db352
-                    for (int i = 0; i < _prototypes.Count; i++)
+                    if (_prototypes[i].Name == tokens[0])
                     {
-                        if (_prototypes[i].Name == tokens[0])
-                        {
-<<<<<<< HEAD
-                            string[] args = new string[tokens.Length - 1];
-=======
-                            String[] args = new string[tokens.Length - 1];
->>>>>>> 6b4c83b2e520f4d4fa72eefeb712c8572b0db352
-                            Array.Copy(tokens, 1, args, 0, tokens.Length - 1);
-                            _actions.Add(_prototypes[i].Clone(args));
-                        }
+                        String[] args=new string[tokens.Length-1];
+                        Array.Copy(tokens, 1, args, 0, tokens.Length - 1);                        
+                        //_prototypes[i].Clone(args);
                     }
+
                 }
             }
+            
         }
 
         /// <summary>
@@ -328,26 +233,13 @@ namespace BatchRename
         /// <param name="e"></param>
         private void previewButton_Click(object sender, RoutedEventArgs e)
         {
-            if(listFiles.Count==0 && listFolders.Count == 0)
+            for (int iFile = 0; iFile < listFiles.Count; iFile++)
             {
-                System.Windows.Forms.MessageBox.Show("Please add file(s)/folder(s)!");
-            }
-            else
-            {
-                for (int iFile = 0; iFile < listFiles.Count; iFile++)
+                for (int iAction = 0; iAction < _actions.Count; iAction++)
                 {
-                    for (int iAction = 0; iAction < _actions.Count; iAction++)
-                    {
-                        listFiles[iFile].NewName = _actions[iAction].Operate(listFiles[iFile].Name);
-                    }
+                    listFiles[iFile].NewName = _actions[iAction].Operate(listFiles[iFile].Name);
                 }
-                for (int iFolder = 0; iFolder < listFolders.Count; iFolder++)
-                {
-                    for (int iAction = 0; iAction < _actions.Count; iAction++)
-                    {
-                        listFolders[iFolder].NewName = _actions[iAction].Operate(listFolders[iFolder].Name);
-                    }
-                }
+                
             }
         }
 

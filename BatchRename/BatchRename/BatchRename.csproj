@@ -66,6 +66,9 @@
       <DependentUpon>MoveConfigDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="MoveOperation.cs" />
+    <Compile Include="PresetNameConfigDialog.xaml.cs">
+      <DependentUpon>PresetNameConfigDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ReplaceConfigDialog.xaml.cs">
       <DependentUpon>ReplaceConfigDialog.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MoveConfigDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PresetNameConfigDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
