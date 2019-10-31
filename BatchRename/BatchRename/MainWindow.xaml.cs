@@ -23,7 +23,7 @@ namespace BatchRename
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
         public MainWindow()
         {
@@ -42,7 +42,7 @@ namespace BatchRename
 
         BindingList<StringOperation> _actions = new BindingList<StringOperation>();
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -196,10 +196,7 @@ namespace BatchRename
                 {
                     listFiles[iFile].NewName = _actions[iAction].Operate(listFiles[iFile].Name);
                 }
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("NewName"));
-                }
+                
             }
         }
 

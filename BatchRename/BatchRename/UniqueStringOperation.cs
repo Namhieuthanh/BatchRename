@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace BatchRename
 {
-    public class UniqueStringOperation : StringOperation, INotifyPropertyChanged
+    public class UniqueStringOperation : StringOperation
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public override string Operate(string origin)
         {
             origin = Guid.NewGuid().ToString();

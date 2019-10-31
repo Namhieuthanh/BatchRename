@@ -2,12 +2,10 @@
 using PropertyChanged;
 namespace BatchRename
 {   
-    public class ReplaceArgs : StringArgs, INotifyPropertyChanged
+    public class ReplaceArgs : StringArgs
     {
         public string From { get; set; }
         public string To { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     public class ReplaceOperation : StringOperation, INotifyPropertyChanged

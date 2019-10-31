@@ -2,12 +2,10 @@
 using PropertyChanged;
 namespace BatchRename
 {
-    public class MoveArgs : StringArgs, INotifyPropertyChanged
+    public class MoveArgs : StringArgs
     {
         public int Size { get; set; }
         public int Type { get; set; } //0: chuyển từ đầu sang cuối; 1: chuyển từ cuối lên đầu
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 
 
