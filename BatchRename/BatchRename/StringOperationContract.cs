@@ -26,6 +26,11 @@ namespace BatchRename
         /// <returns></returns>
         public abstract StringOperation Clone();
         /// <summary>
+        /// Clone ra 1 operation từ mẫu prototype, các tham số được truyền vào từ mảng string
+        /// </summary>
+        /// <returns></returns>
+        public abstract StringOperation Clone(string[] args);
+        /// <summary>
         /// Người dùng chọn edit, hiện dialog để người dùng config lại operation
         /// </summary>
         public abstract void Config();
