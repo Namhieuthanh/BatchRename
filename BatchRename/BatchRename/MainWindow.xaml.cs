@@ -23,7 +23,7 @@ namespace BatchRename
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public MainWindow()
         {
@@ -41,6 +41,8 @@ namespace BatchRename
         List<StringOperation> _prototypes = new List<StringOperation>();
 
         BindingList<StringOperation> _actions = new BindingList<StringOperation>();
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -188,13 +190,15 @@ namespace BatchRename
         /// <param name="e"></param>
         private void previewButton_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < _actions.Count; i++)
+            for (int iFile = 0; iFile < listFiles.Count; iFile++)
             {
-                for (int j = 0; j < listFiles.Count; j++)
+                for (int iAction = 0; iAction < _actions.Count; iAction++)
                 {
-                    Debug.WriteLine(listFiles[j].Name);
-                    listFiles[j].Newname = _actions[i].Operate(listFiles[j].Name);
-                    Debug.WriteLine(listFiles[j].Newname);
+                    listFiles[iFile].NewName = _actions[iAction].Operate(listFiles[iFile].Name);
+                }
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("NewName"));
                 }
             }
         }

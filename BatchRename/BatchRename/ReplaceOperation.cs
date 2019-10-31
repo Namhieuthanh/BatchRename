@@ -61,6 +61,10 @@ namespace BatchRename
             {
 
             }
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs("Description"));
+            }
         }
 
         public override string Name => "Replace";
@@ -72,8 +76,6 @@ namespace BatchRename
 
                 return $"Replace from {args.From} to {args.To}";
             }
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Description));
-
         }
     }
 

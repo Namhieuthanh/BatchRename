@@ -76,6 +76,10 @@ namespace BatchRename
             {
 
             }
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs("Description"));
+            }
         }
 
         public override string Name => "Move";

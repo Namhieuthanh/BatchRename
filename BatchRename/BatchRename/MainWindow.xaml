@@ -62,7 +62,7 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
-                                    <GridViewColumn Header="New Name" Width="150" DisplayMemberBinding="{Binding Newname}"/>
+                                    <GridViewColumn Header="New Name" Width="150" DisplayMemberBinding="{Binding NewName}"/>
                                     <GridViewColumn Header="Path" Width="200" DisplayMemberBinding="{Binding Path}" />
                                     <GridViewColumn Header="Error" Width="126" DisplayMemberBinding="{Binding Error}" />
                                 </GridView>

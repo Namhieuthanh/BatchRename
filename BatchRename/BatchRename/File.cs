@@ -9,7 +9,7 @@ namespace BatchRename
     class File
     {
         public string Name { get; set; }
-        public string Newname { get; set; }
+        public string NewName { get; set; }
         public string Path { get; set; }
         public string Error { get; set; }
     }
