@@ -195,11 +195,12 @@ namespace BatchRename
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void usePresetButton_Click(object sender, RoutedEventArgs e)
+
         {          
+            _actions.Clear();
             var usedPreset = presetsComboBox.SelectedItem as String;
             if (usedPreset != null)
-            {
-                _actions.Clear();
+            {                
                 var lines = System.IO.File.ReadAllLines(path + "\\" + usedPreset + ".txt");
                 foreach (var line in lines)
                 {
