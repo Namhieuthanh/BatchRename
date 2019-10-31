@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using PropertyChanged;
 namespace BatchRename
-{   
+{
     public class ReplaceArgs : StringArgs
     {
         public string From { get; set; }
@@ -50,6 +50,36 @@ namespace BatchRename
                 //trả về replaceOperation mà người dùng đã custom
                 return newReplaceOperation;
             }
+        }
+
+        public override StringOperation Clone(string[] args)
+        {
+            if ((args.Length < 1) && (args.Length > 2))
+            {
+                return null;
+            }
+            //tạo mới 1 replaceOperation, tham số là các giá trị string truyền vào
+            var newReplaceOperation = new ReplaceOperation();
+
+            if (args.Length == 1)
+            {
+                newReplaceOperation.Args = new ReplaceArgs()
+                {
+                    From = args[0],
+                    To = ""
+                };
+            }
+            else
+            {
+                newReplaceOperation.Args = new ReplaceArgs()
+                {
+                    From = args[0],
+                    To = args[1]
+                };
+            }
+
+            //trả về replaceOperation mà người dùng đã custom
+            return newReplaceOperation;
         }
 
         public override void Config()

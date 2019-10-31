@@ -28,6 +28,11 @@ namespace BatchRename
             return newUniqueStringOperation;
         }
 
+        public override StringOperation Clone(string[] args)
+        {
+            return Clone();
+        }
+
         public override void Config()
         {
         }

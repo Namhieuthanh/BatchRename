@@ -21,7 +21,8 @@ namespace BatchRename
             var size = args.Size;
             var type = args.Type;
 
-            if (size > origin.Length) {
+            if (size > origin.Length)
+            {
                 return "Error";
             }
 
@@ -48,7 +49,7 @@ namespace BatchRename
                 }
             };
             //hiện dialog để người dùng customize
-            var screen = new MoveConfigDialog(newMoveOperation.Args); 
+            var screen = new MoveConfigDialog(newMoveOperation.Args);
             if (screen.ShowDialog() == true)
             {
 
@@ -65,6 +66,26 @@ namespace BatchRename
                 //trả về moveOperation mà người dùng đã custom
                 return newMoveOperation;
             }
+        }
+
+        public override StringOperation Clone(string[] args)
+        {
+            if (args.Length != 2)
+            {
+                return null;
+            }
+            //tạo mới 1 moveOperation, tham số là các giá trị string truyền vào
+            var newMoveOperation = new MoveOperation();
+
+            newMoveOperation.Args = new MoveArgs()
+            {
+                Size = int.Parse(args[0]),
+                Type = int.Parse(args[1])
+            };
+
+
+            //trả về replaceOperation mà người dùng đã custom
+            return newMoveOperation;
         }
 
         public override void Config()
