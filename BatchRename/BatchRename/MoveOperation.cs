@@ -121,5 +121,14 @@ namespace BatchRename
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Description));
 
         }
+
+        public override string PresetSaver()
+        {
+            string result = Name;
+            var args = Args as MoveArgs;
+
+            result = result + "/" + args.Size.ToString() + "/" + args.Type.ToString();
+            return result;
+        }
     }
 }

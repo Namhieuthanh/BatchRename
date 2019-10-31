@@ -35,5 +35,7 @@ namespace BatchRename
         /// Người dùng chọn edit, hiện dialog để người dùng config lại operation
         /// </summary>
         public abstract void Config();
+
+        public abstract string PresetSaver();
     }
 }

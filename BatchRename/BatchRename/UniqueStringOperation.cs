@@ -39,6 +39,11 @@ namespace BatchRename
 
         public override string Name => "Unique Name";
         public override string Description => "Create a unique name for file(s)";
+
+        public override string PresetSaver()
+        {
+            return "";
+        }
     }
 
 

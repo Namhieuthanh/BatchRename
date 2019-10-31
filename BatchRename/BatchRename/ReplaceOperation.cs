@@ -105,6 +105,15 @@ namespace BatchRename
                 return $"Replace from {args.From} to {args.To}";
             }
         }
+
+        public override string PresetSaver()
+        {
+            string result = Name;
+            var args = Args as ReplaceArgs;
+
+            result = result + "/" + args.From.ToString() + "/" + args.To.ToString();
+            return result;
+        }
     }
 
 

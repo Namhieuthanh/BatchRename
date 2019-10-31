@@ -239,7 +239,15 @@ namespace BatchRename
             screen.ShowDialog();
             if (presetName != "")
             {
-                
+                string filePath = path + "\\" + presetName + ".txt";
+                string[] lines = new string[_actions.Count];
+
+                for (int i = 0; i < _actions.Count; i++)
+                {
+                    lines[i] = _actions[i].PresetSaver();
+                }
+
+                System.IO.File.WriteAllLines(filePath, lines);
             }
         }
 
@@ -257,7 +265,6 @@ namespace BatchRename
                "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == System.Windows.Forms.DialogResult.Yes)
                 {
-
                     _presets.Remove(delPreset);
                     System.IO.File.Delete(path + "\\" + delPreset + ".txt");
                 }
