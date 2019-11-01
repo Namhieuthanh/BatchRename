@@ -29,9 +29,24 @@ namespace BatchRename
             sizeTextBox.Text = myArgs.Size.ToString();
         }
 
+        private bool isNumber(string text)
+        {
+            foreach (Char c in text)
+            {
+                if (Char.IsDigit(c) == false)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-            if (sizeTextBox.Text == "0")
+            if (isNumber(sizeTextBox.Text) == false)
+            {
+                MessageBox.Show("Size must be a number!");
+            } 
+            else if (sizeTextBox.Text == "0")
             {
                 MessageBox.Show("Size cannot be 0!");
             }

@@ -235,8 +235,10 @@ namespace BatchRename
         private void savePresetButton_Click(object sender, RoutedEventArgs e)
         {
             string presetName = "";
-            var screen = new PresetNameConfigDialog(presetName);
+            var screen = new PresetNameConfigDialog();
             screen.ShowDialog();
+            presetName = screen.GetPresetName();
+            Debug.WriteLine($"{presetName}");
             if (presetName != "")
             {
                 string filePath = path + "\\" + presetName + ".txt";
@@ -248,6 +250,9 @@ namespace BatchRename
                 }
 
                 System.IO.File.WriteAllLines(filePath, lines);
+
+                _presets.Add(presetName);
+                presetsComboBox.SelectedItem = presetName;
             }
         }
 
@@ -380,6 +385,7 @@ namespace BatchRename
         /// <param name="e"></param>
         private void addMethodButton_Click(object sender, RoutedEventArgs e)
         {
+            presetsComboBox.SelectedItem = null;
             var action = prototypesComboBox.SelectedItem as StringOperation;
             _actions.Add(action.Clone());
         }

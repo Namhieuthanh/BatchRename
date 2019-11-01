@@ -20,10 +20,9 @@ namespace BatchRename
     public partial class PresetNameConfigDialog : Window
     {
         string presetName;
-        public PresetNameConfigDialog(string name)
+        public PresetNameConfigDialog()
         {
             InitializeComponent();
-            presetName = name;
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
@@ -38,6 +37,11 @@ namespace BatchRename
                 DialogResult = true;
                 Close();
             }
+        }
+
+        public string GetPresetName()
+        {
+            return presetName;
         }
     }
 }
