@@ -69,10 +69,20 @@ namespace BatchRename
                 }
             };
             var prototype3 = new UniqueStringOperation();
+            var prototype4 = new NewCaseOperation()
+            {
+                Args = new NewCaseArgs()
+                {
+                    Style = "Style"
+                }
+            };
+            var prototype5 = new FullNameOperation();
             //add vào list prototypes
             _prototypes.Add(prototype1);
             _prototypes.Add(prototype2);
             _prototypes.Add(prototype3);
+            _prototypes.Add(prototype4);
+            _prototypes.Add(prototype5);
             //load các presets mà mình có
             Directory.CreateDirectory(path);
             var PresetsLocation = new DirectoryInfo(path);

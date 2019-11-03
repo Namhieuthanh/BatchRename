@@ -62,10 +62,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FullNameOperation.cs" />
     <Compile Include="MoveConfigDialog.xaml.cs">
       <DependentUpon>MoveConfigDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="MoveOperation.cs" />
+    <Compile Include="NewCaseConfigDialog.xaml.cs">
+      <DependentUpon>NewCaseConfigDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewCaseOperation.cs" />
     <Compile Include="PresetNameConfigDialog.xaml.cs">
       <DependentUpon>PresetNameConfigDialog.xaml</DependentUpon>
     </Compile>
@@ -90,6 +95,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MoveConfigDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewCaseConfigDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
