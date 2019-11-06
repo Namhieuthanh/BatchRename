@@ -95,3 +95,7 @@ D:\VSCode\projects\BatchRename\BatchRename\BatchRename\BatchRename\bin\Debug\Bat
 D:\VSCode\projects\BatchRename\BatchRename\BatchRename\BatchRename\bin\Debug\BatchRename.exe
 D:\VSCode\projects\BatchRename\BatchRename\BatchRename\BatchRename\bin\Debug\BatchRename.pdb
 D:\VSCode\projects\BatchRename\BatchRename\BatchRename\BatchRename\obj\Debug\BatchRename.csproj.Fody.CopyLocal.cache
+C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\NewCaseConfigDialog.g.cs
+C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\PresetNameConfigDialog.g.cs
+C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\NewCaseConfigDialog.baml
+C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\PresetNameConfigDialog.baml

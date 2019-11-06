@@ -9,24 +9,44 @@
     <StackPanel Orientation="Horizontal" Margin="0,0,-6,0">
         <StackPanel Orientation="Vertical" Width="427">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Presets" FontSize="30" Margin="0,0,10,0"/>
-                <ComboBox Name="presetsComboBox" FontSize="30" Height="46" Width="169">
-                    
+                <TextBlock Text="Presets" FontSize="30" Margin="0,0,0,0"/>
+                <ComboBox Name="presetsComboBox" FontSize="30" Height="64" Width="151">
+
                 </ComboBox>
-                <Button Name="usePresetButton" FontSize="20" Width="50" Content="Use"  Click="usePresetButton_Click"/>
-                <Button Name="savePresetButton" FontSize="20" Width="50" Content="Save"  Click="savePresetButton_Click"/>
-                <Button Name="deletePresetButton" FontSize="20" Width="56" Content="Del" Click="deletePresetButton_Click"/>
+                <Button Name="usePresetButton" FontSize="20" Width="62"  Click="usePresetButton_Click">
+                    <StackPanel Orientation="Horizontal" Height="59" Width="62">
+                        <Image Source="Icons/use.png" Width="25"/>
+                        <TextBlock Text="Use" FontSize="20" VerticalAlignment="Center" Width="48" Height="36" Margin="0,13,0,10"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="savePresetButton" FontSize="20" Width="64" Click="savePresetButton_Click">
+                    <StackPanel Orientation="Horizontal" Height="59" Width="62">
+                        <Image Source="Icons/save.png" Width="20"/>
+                        <TextBlock Text="Save" FontSize="20" VerticalAlignment="Center" Width="48" Height="36" Margin="0,13,0,10"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="deletePresetButton" FontSize="20" Width="57" Click="deletePresetButton_Click">
+                    <StackPanel Orientation="Horizontal" Height="59" Width="62">
+                        <Image Source="Icons/clear.png" Width="25"/>
+                        <TextBlock Text="Del" FontSize="20" VerticalAlignment="Center" Width="48" Height="36" Margin="0,13,0,10"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Methods" FontSize="30" Margin="0,0,20,0"/>
-                <ComboBox x:Name="prototypesComboBox" DropDownClosed="prototypesComboBox_DropDownClosed" Height="64" Width="229">
+                <TextBlock Text="Methods" FontSize="30" Margin="0,0,0,0"/>
+                <ComboBox x:Name="prototypesComboBox" DropDownClosed="prototypesComboBox_DropDownClosed" Height="64" Width="222">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name, Mode=OneWay}" FontSize="30"/>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <Button Name="addMethodButton" Content="Add" Click="addMethodButton_Click" IsEnabled="False" FontSize="30"/>
+                <Button Name="addMethodButton" Click="addMethodButton_Click" IsEnabled="False" FontSize="30" Width="87">
+                    <StackPanel Orientation="Horizontal" Height="59" Width="86">
+                        <Image Source="Icons/add.png" Width="31" Margin="0,0,5,0"/>
+                        <TextBlock Text="Add" FontSize="25" VerticalAlignment="Center" Width="45" Height="33"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
             <ListBox Name="operationsListBox" Height="586">
                 <ListBox.ItemTemplate>
@@ -47,13 +67,28 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" Width="654">
             <StackPanel Orientation="Horizontal">
-                <Button Name="startButton" FontSize="50" Content="Start" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="129" Height="77" Click="startButton_Click"/>
-                <Button x:Name="previewButton" FontSize="50" Content="Preview" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="174" Height="77" Click="previewButton_Click"/>
+                <Button Name="startButton" FontSize="50" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="177" Height="77" Click="startButton_Click">
+                    <StackPanel Orientation="Horizontal" Height="56" Width="166">
+                        <Image Source="Icons/play-button.png" Width="48" Margin="0,0,5,0"/>
+                        <TextBlock Text="Start" VerticalAlignment="Center" RenderTransformOrigin="0.697,0.481" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="previewButton" FontSize="50" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="238" Height="77" Click="previewButton_Click">
+                    <StackPanel Orientation="Horizontal" Height="56" Width="226">
+                        <Image Source="Icons/eye.png" Width="48" Margin="0,0,5,0"/>
+                        <TextBlock Text="Preview" VerticalAlignment="Center" RenderTransformOrigin="0.697,0.481" />
+                    </StackPanel>
+                </Button>
             </StackPanel>
             <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="610" VerticalAlignment="Top" Width="654">
                 <TabItem x:Name="renameFilesTabItem" Header="Rename Files" FontSize="20">
                     <StackPanel Orientation="Vertical">
-                        <Button x:Name="addFilesButton" FontSize="20" Content="Add File(s)" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="162" Height="45" Click="addFilesButton_Click"/>
+                        <Button x:Name="addFilesButton" FontSize="20"  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="162" Height="45" Click="addFilesButton_Click">
+                            <StackPanel Orientation="Horizontal" Height="40" Width="157">
+                                <Image Source="Icons/add.png" Width="48" Margin="0,0,5,0"/>
+                                <TextBlock Text="Add file(s)" VerticalAlignment="Center" RenderTransformOrigin="0.697,0.481" />
+                            </StackPanel>
+                        </Button>
                         <ListView x:Name="filesListView" HorizontalAlignment="Left" Height="537" VerticalAlignment="Top" Width="626" >
                             <ListView.View>
                                 <GridView>
@@ -68,7 +103,13 @@
                 </TabItem>
                 <TabItem x:Name="renameFoldersTabItem" Header="Remame Folders" FontSize="20">
                     <StackPanel Orientation="Vertical">
-                        <Button x:Name="addFoldersButton" FontSize="20" Content="Add Folder(s)" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="162" Height="45" Click="addFoldersButton_Click"/>
+                        <Button x:Name="addFoldersButton" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="181" Height="45" Click="addFoldersButton_Click">
+                            <StackPanel Orientation="Horizontal" Height="40" Width="176">
+                                <Image Source="Icons/add.png" Width="48" Margin="0,0,0,0"/>
+                                <TextBlock Text="Add Folder(s)" VerticalAlignment="Center" RenderTransformOrigin="0.697,0.481" Margin="0,6" Width="132" />
+                            </StackPanel>
+                        </Button>
+
                         <ListView x:Name="foldersListView" HorizontalAlignment="Left" Height="531" VerticalAlignment="Top" Width="648" >
                             <ListView.View>
                                 <GridView>
