@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BatchRename"
         mc:Ignorable="d"
-        Title="Batch Rename" Height="720" Width="1080" Loaded="Window_Loaded" ResizeMode="NoResize">
+        Title="Batch Rename" Height="1080" Width="1920" Loaded="Window_Loaded" ResizeMode="NoResize">
     <StackPanel Orientation="Horizontal" Margin="0,0,-6,0">
         <StackPanel Orientation="Vertical" Width="427">
             <StackPanel Orientation="Horizontal">
@@ -89,7 +89,7 @@
                                 <TextBlock Text="Add file(s)" VerticalAlignment="Center" RenderTransformOrigin="0.697,0.481" />
                             </StackPanel>
                         </Button>
-                        <ListView x:Name="filesListView" HorizontalAlignment="Left" Height="537" VerticalAlignment="Top" Width="626" >
+                        <ListView x:Name="filesListView" HorizontalAlignment="Left" Height="537" VerticalAlignment="Top" Width="626" SelectionChanged="filesListView_SelectionChanged" >
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />

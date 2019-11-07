@@ -16,7 +16,7 @@ namespace BatchRename
             get
             {
                 var args = Args as StringArgs;
-                return $"Normalize Args To FullName Style";
+                return $"Normalize file name to Fullname style";
             }
         }
 

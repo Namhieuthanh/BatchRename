@@ -85,6 +85,7 @@ namespace BatchRename
             _prototypes.Add(prototype5);
             //load các presets mà mình có
             Directory.CreateDirectory(path);
+            //load presets
             var PresetsLocation = new DirectoryInfo(path);
             FileInfo[] files = PresetsLocation.GetFiles("*.txt");
             foreach(var file in files)
@@ -171,17 +172,21 @@ namespace BatchRename
                 {
                     for (int iFile = 0; iFile < listFiles.Count; iFile++)
                     {
+                        string fileName = listFiles[iFile].Name;
                         for (int iAction = 0; iAction < _actions.Count; iAction++)
                         {
-                            listFiles[iFile].NewName = _actions[iAction].Operate(listFiles[iFile].Name);
+                            fileName = _actions[iAction].Operate(fileName);
                         }
+                        listFiles[iFile].NewName = fileName;
                     }
                     for (int iFolder = 0; iFolder < listFolders.Count; iFolder++)
                     {
+                        string folderName = listFolders[iFolder].Name;
                         for (int iAction = 0; iAction < _actions.Count; iAction++)
                         {
-                            listFolders[iFolder].NewName = _actions[iAction].Operate(listFolders[iFolder].Name);
+                            folderName = _actions[iAction].Operate(folderName);
                         }
+                        listFolders[iFolder].NewName = folderName;
                     }
                     for (int iFile = 0; iFile < listFiles.Count; iFile++)
                     {
@@ -346,17 +351,21 @@ namespace BatchRename
             {
                 for (int iFile = 0; iFile < listFiles.Count; iFile++)
                 {
+                    string fileName = listFiles[iFile].Name;
                     for (int iAction = 0; iAction < _actions.Count; iAction++)
                     {
-                        listFiles[iFile].NewName = _actions[iAction].Operate(listFiles[iFile].Name);
+                        fileName = _actions[iAction].Operate(fileName);
                     }
+                    listFiles[iFile].NewName = fileName;
                 }
                 for (int iFolder = 0; iFolder < listFolders.Count; iFolder++)
                 {
+                    string folderName = listFolders[iFolder].Name;
                     for (int iAction = 0; iAction < _actions.Count; iAction++)
                     {
-                        listFolders[iFolder].NewName = _actions[iAction].Operate(listFolders[iFolder].Name);
+                        folderName = _actions[iAction].Operate(folderName);
                     }
+                    listFolders[iFolder].NewName = folderName;
                 }
             }
         }
@@ -396,8 +405,17 @@ namespace BatchRename
         private void addMethodButton_Click(object sender, RoutedEventArgs e)
         {
             presetsComboBox.SelectedItem = null;
-            var action = prototypesComboBox.SelectedItem as StringOperation;
-            _actions.Add(action.Clone());
+            var actionProto = prototypesComboBox.SelectedItem as StringOperation;
+            var action = actionProto.Clone() as StringOperation;
+            if (action != null)
+            {
+                _actions.Add(action);
+            }
+        }
+
+        private void filesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 

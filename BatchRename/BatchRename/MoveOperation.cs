@@ -23,7 +23,7 @@ namespace BatchRename
 
             if (size > origin.Length)
             {
-                return "Error";
+                return origin;
             }
 
             if (type == 0)

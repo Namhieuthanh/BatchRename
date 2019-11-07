@@ -99,3 +99,5 @@ C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\New
 C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\PresetNameConfigDialog.g.cs
 C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\NewCaseConfigDialog.baml
 C:\Users\USER\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\PresetNameConfigDialog.baml
+E:\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\NewCaseConfigDialog.g.cs
+E:\Documents\GitHub\BatchRename\BatchRename\BatchRename\obj\Debug\NewCaseConfigDialog.baml
