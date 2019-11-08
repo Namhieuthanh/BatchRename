@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BatchRename"
         mc:Ignorable="d"
-        Title="Batch Rename" Height="1080" Width="1920" Loaded="Window_Loaded" ResizeMode="NoResize">
+        Title="Batch Rename" Height="768" Width="1366" Loaded="Window_Loaded" ResizeMode="NoResize">
     <StackPanel Orientation="Horizontal" Margin="0,0,-6,0">
         <StackPanel Orientation="Vertical" Width="427">
             <StackPanel Orientation="Horizontal">
@@ -48,7 +48,7 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-            <ListBox Name="operationsListBox" Height="586">
+            <ListBox Name="operationsListBox" Height="607">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel >
@@ -65,7 +65,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Width="654">
+        <StackPanel Orientation="Vertical" Width="933">
             <StackPanel Orientation="Horizontal">
                 <Button Name="startButton" FontSize="50" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="177" Height="77" Click="startButton_Click">
                     <StackPanel Orientation="Horizontal" Height="56" Width="166">
@@ -80,7 +80,7 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-            <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="610" VerticalAlignment="Top" Width="654">
+            <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="656" VerticalAlignment="Top" Width="926" Margin="0,0,-272,0">
                 <TabItem x:Name="renameFilesTabItem" Header="Rename Files" FontSize="20">
                     <StackPanel Orientation="Vertical">
                         <Button x:Name="addFilesButton" FontSize="20"  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="162" Height="45" Click="addFilesButton_Click">
@@ -89,13 +89,13 @@
                                 <TextBlock Text="Add file(s)" VerticalAlignment="Center" RenderTransformOrigin="0.697,0.481" />
                             </StackPanel>
                         </Button>
-                        <ListView x:Name="filesListView" HorizontalAlignment="Left" Height="537" VerticalAlignment="Top" Width="626" SelectionChanged="filesListView_SelectionChanged" >
+                        <ListView x:Name="filesListView" HorizontalAlignment="Left" Height="574" VerticalAlignment="Top" Width="926" SelectionChanged="filesListView_SelectionChanged" Margin="0,0,-278,0" >
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
-                                    <GridViewColumn Header="New Name" Width="150" DisplayMemberBinding="{Binding NewName}"/>
+                                    <GridViewColumn Header="Name" Width="300" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="New Name" Width="300" DisplayMemberBinding="{Binding NewName}"/>
                                     <GridViewColumn Header="Path" Width="200" DisplayMemberBinding="{Binding Path}" />
-                                    <GridViewColumn Header="Error" Width="126" DisplayMemberBinding="{Binding Error}" />
+                                    <GridViewColumn Header="Error" Width="120" DisplayMemberBinding="{Binding Error}" />
                                 </GridView>
                             </ListView.View>
                         </ListView>
@@ -110,13 +110,13 @@
                             </StackPanel>
                         </Button>
 
-                        <ListView x:Name="foldersListView" HorizontalAlignment="Left" Height="531" VerticalAlignment="Top" Width="648" >
+                        <ListView x:Name="foldersListView" HorizontalAlignment="Left" Height="577" VerticalAlignment="Top" Width="920" >
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
-                                    <GridViewColumn Header="New Name" Width="150" DisplayMemberBinding="{Binding NewName}" />
+                                    <GridViewColumn Header="Name" Width="300" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="New Name" Width="300" DisplayMemberBinding="{Binding NewName}" />
                                     <GridViewColumn Header="Path" Width="200" DisplayMemberBinding="{Binding Path}" />
-                                    <GridViewColumn Header="Error" Width="126" DisplayMemberBinding="{Binding Error}" />
+                                    <GridViewColumn Header="Error" Width="120" DisplayMemberBinding="{Binding Error}" />
                                 </GridView>
                             </ListView.View>
                         </ListView>
